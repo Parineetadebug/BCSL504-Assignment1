@@ -1,40 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio | Home</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <title>Online Application Form</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
-  <header class="header">
-    <h1>My Personal Portfolio</h1>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="resume.html">Resume</a>
-      <a href="biodata.html">Bio-data</a>
-    </nav>
-  </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h2>Hello, I'm <span class="highlight">Parineeta</span></h2>
-      <p>Computer Science Student</p>
-      <button onclick="showMessage()">Know More</button>
-    </div>
-  </section>
+<div class="container">
+    <h2>Online Application / Registration Form</h2>
 
-  <section class="about">
-    <h2>About Me</h2>
-    <p>
-      I’m currently pursuing my Bachelor's in Computer Science Engineering. I love designing clean, modern websites and building interactive web applications.  
-      This website presents my <b>Resume</b> and <b>Bio-data</b> with creative design and responsive elements.
-    </p>
-  </section>
+    <form action="submit.php" method="POST" id="regForm">
+        
+        <label>Full Name:</label>
+        <input type="text" name="fullname" required>
 
-  <footer>
-    <p>© 2025 Parineeta| All Rights Reserved</p>
-  </footer>
+        <label>Email:</label>
+        <input type="email" name="email" required>
+
+        <label>Phone Number:</label>
+        <input type="text" name="phone" required>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" required>
+
+        <label>Gender:</label>
+        <select name="gender" required>
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label>Course Applying For:</label>
+        <select name="course" required>
+            <option>Web Development</option>
+            <option>Data Science</option>
+            <option>Python Programming</option>
+            <option>AI & ML</option>
+        </select>
+
+        <label>Address:</label>
+        <textarea name="address" required></textarea>
+
+        <button type="submit" id="submitBtn">Submit Application</button>
+    </form>
+</div>
+
+<script>
+    // Basic jQuery validation animation
+    $(document).ready(function(){
+        $("#submitBtn").click(function(){
+            $("input, textarea, select").each(function(){
+                if($(this).val() === ""){
+                    $(this).css("border","2px solid red");
+                } else {
+                    $(this).css("border","2px solid green");
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
